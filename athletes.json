@@ -1,0 +1,45 @@
+[
+  {
+    "id": 0,
+    "lastName": "Deuritz",
+    "firstName": "Marco",
+    "age": "18",
+    "shots": [
+      { "id": 0, "result": "123x5" },
+      { "id": 1, "result": "123x5" },
+      { "id": 2, "result": "123x5" },
+      { "id": 3, "result": "123x5" },
+      { "id": 4, "result": "123x5" },
+      { "id": 5, "date": "2021-05-12T09:11:58.067Z", "result": "12345" },
+      { "id": 6, "date": "2021-05-12T09:15:32.752Z", "result": "53241" },
+      { "id": 7, "date": "2021-05-12T09:31:47.656Z", "result": "54-121" }
+    ]
+  },
+  {
+    "id": 1,
+    "lastName": "Deuritz",
+    "firstName": "Marco",
+    "age": "18",
+    "shots": []
+  },
+  {
+    "id": 2,
+    "lastName": "Deuritz",
+    "firstName": "Marco",
+    "age": "18",
+    "shots": [
+      { "id": 0, "date": "2021-05-12T15:54:16.751Z", "result": "12305" },
+      { "id": 1, "date": "2021-05-12T15:54:31.648Z", "result": "12305" },
+      { "id": 2, "date": "2021-05-12T15:55:03.061Z", "result": "12305" }
+    ]
+  },
+  {
+    "id": 3,
+    "lastName": "Mustermann",
+    "firstName": "Max",
+    "age": "28",
+    "shots": [
+      { "id": 0, "date": "2021-05-14T08:28:13.468Z", "result": "123x5" }
+    ]
+  }
+]
