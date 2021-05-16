@@ -5,19 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shooting Display</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .dot {
+        height: 50px;
+        width: 50px;
+        background-color: rgb(0, 0, 0);
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px black solid;
+      }
+    </style>
   </head>
   <body>
     <h1>Schuss Display</h1>
-    <div class="result">
+    <div class="result" style="text-align: center">
       The results of the last shooting will appear here...
+    </div>
+    <div style="text-align: center">
+      <h2>liegend:</h2>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <div class="dot"></div>
     </div>
   </body>
   <script>
     const Http = new XMLHttpRequest();
-    const url = "localhost/showAthletes";
-    Http.open("GET", url, false);
+    const url = "http://localhost/showAthletes?mode=id&value=4";
+    Http.open("GET", url);
     Http.send();
-    console.log(Http.responseText);
-    document.getElementsByClassName("result")[0].innerHTML = Http.responseText;
+
+    Http.onreadystatechange = (e) => {
+      console.log(Http.responseText);
+      let athlete = JSON.parse(Http.responseText);
+      console.log(athlete);
+      let shooting = athlete.shots.slice(-1)[0].result;
+      console.log(shooting);
+      document.querySelectorAll(".result")[0].innerHTML = shooting.map(item=>item.state);
+
+      for (let i = 0; i < shooting.length; i++) {
+        if (shooting[i].state == "-1") {
+          console.log("fehler: "+shooting[i].time);
+          console.log(shooting[i]);
+          i++;
+        } else {
+          console.log("treffer: "+shooting[i].time);
+          console.log(shooting[i]);
+          document.querySelectorAll(".dot")[
+            (shooting[i].state - 1) % 5
+          ].style.backgroundColor = "#ffffff";
+        }
+      }
+    };
   </script>
 </html>

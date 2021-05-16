@@ -68,10 +68,16 @@ http
           if (athleteArray[index].shots.length > 0) {
             id = Number(athleteArray[index].shots.slice(-1)[0].id) + 1;
           }
+          let shooting = queryObject.result.split(",");
+          let shootingResult = [];
+          for (let i = 0; i < shooting.length; i += 2) {
+            shootingResult.push({ state: shooting[i], time: shooting[i + 1] });
+          }
+          console.log(shootingResult);
           athleteArray[index].shots.push({
             id: id,
             date: current,
-            result: queryObject.result,
+            result: shootingResult,
             notes: queryObject.notes,
           });
           console.log(athleteArray);
@@ -264,23 +270,28 @@ http
             )[0];
             console.log(log.id);
             switch (queryObject.mode) {
-              case "action": {
-                result = log.action;
-              }
-              break;
-              case "athleteId": {
-                result = log.athleteId;
-              }
-              break;
-              case "date": {
-                result = log.date;
-              }
-              break;
-              case "id": {
-                result = log.id;
-              }
-              break;
-              default : result = "no mode selected...";
+              case "action":
+                {
+                  result = log.action;
+                }
+                break;
+              case "athleteId":
+                {
+                  result = log.athleteId;
+                }
+                break;
+              case "date":
+                {
+                  result = log.date;
+                }
+                break;
+              case "id":
+                {
+                  result = log.id;
+                }
+                break;
+              default:
+                result = "no mode selected...";
             }
           } else {
             result = "no such file exists";
@@ -291,6 +302,7 @@ http
         console.log("Command not found");
         result = `Command "${pathname.slice(1, pathname.length)}" not found`;
     }
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-type", "text/plain");
     res.end(result);
     result = "";
