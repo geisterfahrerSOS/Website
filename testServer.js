@@ -269,32 +269,56 @@ http
               -1
             )[0];
             console.log(log.id);
-            switch (queryObject.mode) {
-              case "action":
-                {
-                  result = log.action;
-                }
-                break;
-              case "athleteId":
-                {
-                  result = log.athleteId;
-                }
-                break;
-              case "date":
-                {
-                  result = log.date;
-                }
-                break;
-              case "id":
-                {
-                  result = log.id;
-                }
-                break;
-              default:
-                result = "no mode selected...";
+            if (queryObject.mode != null) {
+              switch (queryObject.mode) {
+                case "action":
+                  {
+                    result = log.action;
+                  }
+                  break;
+                case "athleteId":
+                  {
+                    result = log.athleteId;
+                  }
+                  break;
+                case "date":
+                  {
+                    result = log.date;
+                  }
+                  break;
+                case "id":
+                  {
+                    result = log.id;
+                  }
+                  break;
+                default:
+                  result = "no mode selected...";
+              }
+            } else {
+              result = JSON.stringify(log, null, 2);
             }
           } else {
             result = "no such file exists";
+          }
+        }
+        break;
+      case "showAction":
+        {
+          if (fs.existsSync("./shootingLog.json")) {
+            let log = JSON.parse(fs.readFileSync("./shootingLog.json"));
+            console.log(log);
+            if (queryObject.id != null) {
+              result = JSON.stringify(
+                log.filter((item) => item.athleteId == queryObject.id),
+                null,
+                2
+              );
+            } else {
+              result = JSON.stringify(log, null, 2);
+            }
+          } else {
+            result = "no such file exists";
+            console.log("no such file exists");
           }
         }
         break;

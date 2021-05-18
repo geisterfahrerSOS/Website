@@ -53,7 +53,7 @@
       document.querySelectorAll(".result")[0].innerHTML = shooting.map(item=>item.state);
 
       for (let i = 0; i < shooting.length; i++) {
-        if (shooting[i].state == "-1") {
+        if (shooting[i].state == "0") {
           console.log("fehler: "+shooting[i].time);
           console.log(shooting[i]);
           i++;

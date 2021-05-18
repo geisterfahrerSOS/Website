@@ -67,5 +67,40 @@
     "action": "start"
   },
   { "id": 11, "athleteId": 3, "date": "2021-05-14T08:35:08.424Z" },
-  { "id": 12, "athleteId": 3, "date": "2021-05-14T08:35:44.367Z", "action": "start" }
+  {
+    "id": 12,
+    "athleteId": 3,
+    "date": "2021-05-14T08:35:44.367Z",
+    "action": "start"
+  },
+  {
+    "id": 13,
+    "athleteId": 3,
+    "date": "2021-05-17T13:19:11.958Z",
+    "action": "stop"
+  },
+  {
+    "id": 14,
+    "athleteId": 3,
+    "date": "2021-05-17T14:03:20.210Z",
+    "action": "stop"
+  },
+  {
+    "id": 15,
+    "athleteId": 2,
+    "date": "2021-05-18T09:59:50.478Z",
+    "action": "pause"
+  },
+  {
+    "id": 16,
+    "athleteId": 2,
+    "date": "2021-05-18T10:33:21.288Z",
+    "action": "start"
+  },
+  {
+    "id": 17,
+    "athleteId": 2,
+    "date": "2021-05-18T10:33:42.568Z",
+    "action": "stop"
+  }
 ]
