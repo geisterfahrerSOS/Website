@@ -80,7 +80,7 @@ http
             result: shootingResult,
             notes: queryObject.notes,
           });
-          console.log(athleteArray);
+          //console.log(athleteArray);
           fs.writeFileSync("./athletes.json", JSON.stringify(athleteArray));
           result = "added new shooting...";
         }
