@@ -77,6 +77,7 @@ http
           athleteArray[index].shots.push({
             id: id,
             date: current,
+            art: queryObject.art,
             result: shootingResult,
             notes: queryObject.notes,
           });
@@ -153,6 +154,7 @@ http
             fs.writeFileSync("./athletes.json", "[]");
             console.log("creating file");
           }
+          console.log("Showing Athletes...");
           res.setHeader("Content-type", "application/json");
           let athleteArray = JSON.parse(
             fs.readFileSync("./athletes.json", { encoding: "utf-8" })
@@ -237,6 +239,7 @@ http
               index = athleteArray.findIndex(
                 (item) => item.lastName == queryObject.value
               );
+              console.log(athleteArray);
               break;
             default:
               index = athleteArray.findIndex(
@@ -253,10 +256,10 @@ http
             idIndex = shootingLog.slice(-1)[0].id + 1;
           }
           shootingLog.push({
-            id: idIndex || -1,
-            athleteId: index || -1,
+            id: idIndex,
+            athleteId: index,
             date: new Date(),
-            action: queryObject.action || -1,
+            action: queryObject.action,
           });
           fs.writeFileSync("./shootingLog.json", JSON.stringify(shootingLog));
           result = `Action: "${queryObject.action}" has been sent to the controller`;
@@ -268,7 +271,8 @@ http
             let log = JSON.parse(fs.readFileSync("./shootingLog.json")).slice(
               -1
             )[0];
-            console.log(log.id);
+            console.log(log);
+            console.log(queryObject.mode);
             if (queryObject.mode != null) {
               switch (queryObject.mode) {
                 case "action":
@@ -278,7 +282,7 @@ http
                   break;
                 case "athleteId":
                   {
-                    result = log.athleteId;
+                    result = String(log.athleteId);
                   }
                   break;
                 case "date":
@@ -288,11 +292,12 @@ http
                   break;
                 case "id":
                   {
-                    result = log.id;
+                    result = String(log.id);
                   }
                   break;
                 default:
-                  result = "no mode selected...";
+                  result = "wrong mode selected...";
+                  console.log("wrong mode selected...");
               }
             } else {
               result = JSON.stringify(log, null, 2);

@@ -102,5 +102,35 @@
     "athleteId": 2,
     "date": "2021-05-18T10:33:42.568Z",
     "action": "stop"
+  },
+  {
+    "id": 18,
+    "athleteId": -1,
+    "date": "2021-05-24T12:26:41.284Z",
+    "action": "start"
+  },
+  {
+    "id": 19,
+    "athleteId": -1,
+    "date": "2021-05-24T12:27:57.655Z",
+    "action": "start"
+  },
+  {
+    "id": 20,
+    "athleteId": -1,
+    "date": "2021-05-24T12:29:19.162Z",
+    "action": "start"
+  },
+  {
+    "id": 21,
+    "athleteId": 0,
+    "date": "2021-05-24T12:30:08.232Z",
+    "action": "start"
+  },
+  {
+    "id": 22,
+    "athleteId": 4,
+    "date": "2021-05-24T12:30:31.440Z",
+    "action": "start"
   }
 ]
