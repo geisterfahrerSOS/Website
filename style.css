@@ -44,6 +44,7 @@ body {
 
 .canvasWrapper {
   float: unset;
+  padding: 10px;
 }
 
 .datum {

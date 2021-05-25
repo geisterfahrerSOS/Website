@@ -31,9 +31,9 @@ function submit(value) {
       .forEach(
         (item) => (item.childNodes[1].style.backgroundColor = "#000000")
       ); //Alle werden auf Schwarz gestellt
-      for (let i = 0; i < 5; i++) {
-        document.querySelectorAll(".shot")[i].childNodes[3].innerHTML = "";
-      }
+    for (let i = 0; i < 5; i++) {
+      document.querySelectorAll(".shot")[i].childNodes[3].innerHTML = "";
+    }
     console.log(shooting);
     for (let i = 0; i < shooting.length; i++) {
       if (shooting[i].state == "0") {
@@ -49,25 +49,48 @@ function submit(value) {
     //////////////////////////////////////////Felder werden aufgefüllt
     document.querySelectorAll(".schussArt")[0].innerHTML =
       athlete.shots.slice(-1)[0].art; //Schussart wird angezeigt
-    document.querySelectorAll(".zeit")[0].innerHTML = athlete.shots.slice(-1)[0].result[4].time;
-    document.querySelectorAll(".trefferQuote")[0].innerHTML =  (5-athlete.shots.slice(-1)[0].result.filter(item=>item.state=="0").length)*20 +" %";
+    document.querySelectorAll(".zeit")[0].innerHTML =
+      athlete.shots.slice(-1)[0].result[4].time;
+    document.querySelectorAll(".trefferQuote")[0].innerHTML =
+      (5 -
+        athlete.shots.slice(-1)[0].result.filter((item) => item.state == "0")
+          .length) *
+        20 +
+      " %";
     let date = new Date(athlete.shots.slice(-1)[0].date);
     console.log(date);
-    document.querySelectorAll(".uhrzeit")[0].innerHTML = date.getHours()+":"+date.getMinutes();
-    document.querySelectorAll(".datumKurz")[0].innerHTML = date.getDate()+"."+(date.getMonth()+1)+"."+date.getFullYear();
+    document.querySelectorAll(".uhrzeit")[0].innerHTML =
+      date.getHours() + ":" + date.getMinutes();
+    document.querySelectorAll(".datumKurz")[0].innerHTML =
+      date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
     ////////////////////////////////////////////////////
-    var canvas = document.querySelectorAll(".myCanvas")[0];
-    var ctx = canvas.getContext("2d");
+    let ground = 60;
+    let canvas = document.querySelectorAll(".myCanvas")[0];
+    let ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "rgb(130,130,130)";
-    ctx.fillRect(0, 0, 100, 50);
-    ctx.fillStyle = "rgb(0,200,0)";
-    ctx.fillRect(100, 0, 2, 50);
-    ctx.fillStyle = "rgb(130,130,130)";
-    ctx.fillRect(102, 0, 35, 50);
-    ctx.fillStyle = "rgb(0,200,0)";
-    ctx.fillRect(137, 0, 2, 50);
-    ctx.fillStyle = "rgb(130,130,130)";
-    ctx.fillRect(139, 0, 28, 50);
+    ctx.fillRect(
+      0,
+      0,
+      (canvas.width * shooting[4].time) / ground,
+      canvas.height
+    );
+    ctx.fillStyle = shooting[0].state == 0 ? "rgb(255,0,0)" : "rgb(0,255,0)";
+    ctx.fillRect(
+      (canvas.width * shooting[0].time) / ground -2,
+      0,
+      2,
+      canvas.height
+    );
+    for (let i = 1; i < 5; i++) {
+      ctx.fillStyle = shooting[i].state == 0 ? "rgb(255,0,0)" : "rgb(0,255,0)";
+      ctx.fillRect(
+        (canvas.width * shooting[i].time) / ground -2,
+        0,
+        2,
+        canvas.height
+      );
+    }
   } else {
     console.log("There was a problem...");
   }
