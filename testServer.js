@@ -255,12 +255,22 @@ http
           if (shootingLog.length > 0) {
             idIndex = shootingLog.slice(-1)[0].id + 1;
           }
-          shootingLog.push({
-            id: idIndex,
-            athleteId: index,
-            date: new Date(),
-            action: queryObject.action,
-          });
+          if (queryObject.action == "start") {
+            shootingLog.push({
+              id: idIndex,
+              athleteId: index,
+              art: queryObject.art,
+              date: new Date(),
+              action: queryObject.action,
+            });
+          } else {
+            shootingLog.push({
+              id: idIndex,
+              athleteId: index,
+              date: new Date(),
+              action: queryObject.action,
+            });
+          }
           fs.writeFileSync("./shootingLog.json", JSON.stringify(shootingLog));
           result = `Action: "${queryObject.action}" has been sent to the controller`;
         }
@@ -293,6 +303,11 @@ http
                 case "id":
                   {
                     result = String(log.id);
+                  }
+                  break;
+                case "art":
+                  {
+                    result = log.art;
                   }
                   break;
                 default:
