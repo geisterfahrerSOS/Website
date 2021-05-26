@@ -6,7 +6,6 @@ body {
   width: 1000px;
   height: 2000px;
   padding: 20px;
-  background-color: #f0f0f0;
 }
 .dot {
   height: 30px;
@@ -30,6 +29,7 @@ body {
 }
 
 .shooting {
+  text-align: center;
   font-size: small;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr auto auto;
@@ -40,6 +40,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #ffffff;
+  margin: 30px 0px 30px 0px;
 }
 
 .canvasWrapper {
@@ -49,4 +50,29 @@ body {
 
 .datum {
   font-size: medium;
+}
+
+.schussArt {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.result {
+  text-align: center;
+}
+
+.zeitWrapper {
+  font-size: x-large;
+}
+
+.trefferQuote {
+  font-size: x-large;
+}
+
+.bildStehend {
+  background-image: url(./Website/stehendSchießen.png);
+}
+
+.bildLiegend {
+  background-image: url(./Website/liegendSchießen.jpg);
 }
