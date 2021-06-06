@@ -1,0 +1,22 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "charts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geisterfahrerSOS/Website.git"
+  },
+  "author": "Marco Deuritz <marcodeuritz@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geisterfahrerSOS/Website/issues"
+  },
+  "homepage": "https://github.com/geisterfahrerSOS/Website#readme",
+  "dependencies": {
+    "chart.js": "^3.3.2"
+  }
+}

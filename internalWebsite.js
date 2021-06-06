@@ -1,7 +1,7 @@
 //////////////////////////drop down liste mit Namen füllen
+let athletes = [];
 athletesRequest();
 //////////////////////////////
-let athletes = [];
 function submit(value) {
   document.querySelectorAll(".shooting").forEach((el) => el.remove());
   if (athletes != null) {
@@ -152,7 +152,7 @@ console.log(shooting);
   shootingNode.querySelectorAll(".art")[0].innerHTML = shooting.art;
   shootingNode.querySelectorAll(".zeit")[0].innerHTML = shooting.result[4].time;
   shootingNode.querySelectorAll(".trefferQuote")[0].innerHTML =
-    (5 - shooting.result.filter((item) => item.state == "0").length) * 20 +
+    shooting.accuracy +
     " %";
   let date = new Date(shooting.date);
   console.log(date);

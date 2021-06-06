@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schuss Analyse</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="dropDownWrapper">
+      <div class="dropDown">
+        <label for="athleten">Athlet&nbsp;&nbsp;</label>
+        <select
+          name="Athleten"
+          class="athleteDropDown"
+          style="border-radius: 4px; padding: 2px"
+        >
+          <option value="noValue">Athleten auswählen...</option>
+        </select>
+      </div>
+    </div>
+    <div class="dropDownWrapper">
+      <div class="dropDown">
+        <label for="athleten">Datenreihe&nbsp;&nbsp;</label>
+        <select
+          name="Athleten"
+          class="athleteDropDown"
+          onchange="submit(this.value);"
+          style="border-radius: 4px; padding: 2px"
+        >
+          <option value="noValue">Datenreihe auswählen...</option>
+        </select>
+      </div>
+    </div>
+    <canvas
+      id="myChart"
+      width="800"
+      height="600"
+      style="margin: auto; margin-top: 40px"
+    ></canvas>
+    <script>
+      let created = false;
+      let myChart;
+      let athletes = [];
+      let datenreihen = ["Trefferquote", "Schusszeit", "1. Schuss", "2. Schuss", "3. Schuss", "4. Schuss", "5. Schuss"];
+      athletesRequest();
+      function athletesRequest() {
+        const Http = new XMLHttpRequest();
+        const url = "http://localhost/showAthletes";
+        Http.open("GET", url);
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+          athletes = JSON.parse(Http.responseText);
+          let dropDown = document.querySelectorAll("select")[0];
+          dropDown.innerHTML =
+            "<option value='noValue'>Athleten auswählen...</option>";
+          for (let count of athletes) {
+            let option = document.createElement("option");
+            option.value = count.id;
+            option.innerHTML = `${count.firstName} ${count.lastName}`;
+            dropDown.appendChild(option);
+          }
+          dropDown = document.querySelectorAll("select")[1];
+          dropDown.innerHTML =
+            "<option value='noValue'>Datenreihe auswählen...</option>";
+          for (let count of datenreihen) {
+            let option = document.createElement("option");
+            console.log(count);
+            option.value = count;
+            option.innerHTML = count;
+            dropDown.appendChild(option);
+          }
+        };
+      }
+      function submit(dataValue) {
+        document.querySelectorAll(".shooting").forEach((el) => el.remove());
+        let value = document.querySelectorAll("select")[0].value;
+        if (athletes != null) {
+          makeData(
+            athletes[athletes.findIndex((item) => item.id == value)],
+            dataValue
+          );
+        } else {
+          console.log("There was a problem... No athletes object found!");
+        }
+      }
+      let data;
+      function leftFillNum(num, targetLength) {
+        return num.toString().padStart(targetLength, 0);
+      }
+      function makeData(athlete, dataValue) {
+        data = {};
+        data.labels = athlete.shots.map((item) => {
+          let date = new Date(item.date);
+          return (
+            leftFillNum(date.getDate() + 1, 2) +
+            "/" +
+            leftFillNum(date.getMonth(), 2) +
+            "/" +
+            leftFillNum(date.getFullYear(), 2) +
+            "  " +
+            leftFillNum(date.getHours(), 2) +
+            ":" +
+            leftFillNum(date.getMinutes(), 2)
+          );
+        });
+        console.log(data.labels[0].length);
+        switch (dataValue) {
+          case "Trefferquote":
+            data.datasets = athlete.shots.map((item) => item.accuracy);
+            break;
+          case "Schusszeit":
+            data.datasets = athlete.shots.map((item) => item.result[4].time);
+            break;
+          case "1. Schuss":
+            data.datasets = athlete.shots.map((item) => item.result[0].time);
+            break;
+            case "2. Schuss":
+            data.datasets = athlete.shots.map((item) => item.result[1].time);
+            break;
+            case "3. Schuss":
+            data.datasets = athlete.shots.map((item) => item.result[2].time);
+            break;
+            case "4. Schuss":
+            data.datasets = athlete.shots.map((item) => item.result[3].time);
+            break;
+            case "5. Schuss":
+            data.datasets = athlete.shots.map((item) => item.result[4].time);
+            break;
+          default:
+            console.log("Fehler bei Datenreihen");
+            break;
+        }
+        if (created) {
+          myChart.destroy();
+        }
+        let ctx = document.getElementById("myChart").getContext("2d");
+        myChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: data.labels,
+            datasets: [
+              {
+                label: dataValue,
+                data: data.datasets,
+                backgroundColor: [
+                  "rgba(255, 99, 132, 0.2)",
+                ],
+                borderColor: [
+                  "rgba(255, 99, 132, 1)",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            line: {
+              tension: 16,
+            },
+            responsive: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+        created = true;
+      }
+    </script>
+  </body>
+</html>

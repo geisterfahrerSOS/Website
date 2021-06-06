@@ -68,17 +68,20 @@ http
           if (athleteArray[index].shots.length > 0) {
             id = Number(athleteArray[index].shots.slice(-1)[0].id) + 1;
           }
+          console.log(queryObject.result);
           let shooting = queryObject.result.split(",");
           let shootingResult = [];
           for (let i = 0; i < shooting.length; i += 2) {
             shootingResult.push({ state: shooting[i], time: shooting[i + 1] });
           }
+          let accuracy = (5 - shootingResult.filter((item) => item.state == "0").length) * 20;
           console.log(shootingResult);
           athleteArray[index].shots.push({
             id: id,
             date: current,
             art: queryObject.art,
             result: shootingResult,
+            accuracy: accuracy,
             notes: queryObject.notes,
           });
           //console.log(athleteArray);
