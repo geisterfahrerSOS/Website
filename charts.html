@@ -20,7 +20,7 @@
         </select>
       </div>
     </div>
-    <div class="dropDownWrapper">
+    <!-- <div class="dropDownWrapper">
       <div class="dropDown">
         <label for="athleten">Datenreihe&nbsp;&nbsp;</label>
         <select
@@ -32,7 +32,17 @@
           <option value="noValue">Datenreihe auswählen...</option>
         </select>
       </div>
+    </div> -->
+    <div class="checkBoxWrapper">
+      <div class="checkBoxes">
+        <input
+          type="checkbox"
+          value="Datenreihe auswählen"
+          id="defaultCheckbox"
+        />Datenreihe auswählen...
+      </div>
     </div>
+    <button onclick="submit()">Click Me!</button>
     <canvas
       id="myChart"
       width="800"
@@ -43,9 +53,18 @@
       let created = false;
       let myChart;
       let athletes = [];
-      let datenreihen = ["Trefferquote", "Schusszeit", "1. Schuss", "2. Schuss", "3. Schuss", "4. Schuss", "5. Schuss"];
+      let datenreihen = [
+        "Trefferquote",
+        "Schusszeit",
+        "1. Schuss",
+        "2. Schuss",
+        "3. Schuss",
+        "4. Schuss",
+        "5. Schuss",
+      ];
       athletesRequest();
       function athletesRequest() {
+        //machen einen Http request um die dropdowns und checklisten zu füllen
         const Http = new XMLHttpRequest();
         const url = "http://localhost/showAthletes";
         Http.open("GET", url);
@@ -62,25 +81,44 @@
             option.innerHTML = `${count.firstName} ${count.lastName}`;
             dropDown.appendChild(option);
           }
-          dropDown = document.querySelectorAll("select")[1];
-          dropDown.innerHTML =
-            "<option value='noValue'>Datenreihe auswählen...</option>";
+          let checkboxes = document.querySelectorAll(".checkBoxes")[0];
+          checkboxes.innerHTML = "";
+          checkboxes.innerHTML = `<input type="checkbox" value="Datenreihe auswählen" id="defaultCheckbox">Datenreihe auswählen...`;
+          console.log("coming through");
           for (let count of datenreihen) {
-            let option = document.createElement("option");
-            console.log(count);
-            option.value = count;
-            option.innerHTML = count;
-            dropDown.appendChild(option);
+            let input = document.createElement("input");
+            input.type = "checkbox";
+            input.value = count;
+            input.id = count;
+            console.log(input);
+            checkboxes.appendChild(input);
+            checkboxes.innerHTML += count;
           }
+          // dropDown = document.querySelectorAll("select")[1];
+          // dropDown.innerHTML =
+          //   "<option value='noValue'>Datenreihe auswählen...</option>";
+          // for (let count of datenreihen) {
+          //   let option = document.createElement("option");
+          //   console.log(count);
+          //   option.value = count;
+          //   option.innerHTML = count;
+          //   dropDown.appendChild(option);
+          // }
         };
       }
-      function submit(dataValue) {
-        document.querySelectorAll(".shooting").forEach((el) => el.remove());
+      function submit() {
+        let checkboxes = document.querySelectorAll("input");
+        let dataValues = [];
+        for (let count of checkboxes) {
+          if (count.checked) {
+            dataValues.push(count.value);
+          }
+        }
         let value = document.querySelectorAll("select")[0].value;
         if (athletes != null) {
           makeData(
             athletes[athletes.findIndex((item) => item.id == value)],
-            dataValue
+            dataValues
           );
         } else {
           console.log("There was a problem... No athletes object found!");
@@ -90,7 +128,7 @@
       function leftFillNum(num, targetLength) {
         return num.toString().padStart(targetLength, 0);
       }
-      function makeData(athlete, dataValue) {
+      function makeData(athlete, dataValues) {
         data = {};
         data.labels = athlete.shots.map((item) => {
           let date = new Date(item.date);
@@ -107,31 +145,33 @@
           );
         });
         console.log(data.labels[0].length);
-        switch (dataValue) {
-          case "Trefferquote":
-            data.datasets = athlete.shots.map((item) => item.accuracy);
-            break;
-          case "Schusszeit":
-            data.datasets = athlete.shots.map((item) => item.result[4].time);
-            break;
-          case "1. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[0].time);
-            break;
+        for (let count of dataValues) {
+          switch (count) {
+            case "Trefferquote":
+              data.datasets += athlete.shots.map((item) => item.accuracy);
+              break;
+            case "Schusszeit":
+              data.datasets += athlete.shots.map((item) => item.result[4].time);
+              break;
+            case "1. Schuss":
+              data.datasets += athlete.shots.map((item) => item.result[0].time);
+              break;
             case "2. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[1].time);
-            break;
+              data.datasets += athlete.shots.map((item) => item.result[1].time);
+              break;
             case "3. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[2].time);
-            break;
+              data.datasets += athlete.shots.map((item) => item.result[2].time);
+              break;
             case "4. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[3].time);
-            break;
+              data.datasets += athlete.shots.map((item) => item.result[3].time);
+              break;
             case "5. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[4].time);
-            break;
-          default:
-            console.log("Fehler bei Datenreihen");
-            break;
+              data.datasets += athlete.shots.map((item) => item.result[4].time);
+              break;
+            default:
+              console.log("Fehler bei Datenreihen");
+              break;
+          }
         }
         if (created) {
           myChart.destroy();
@@ -141,19 +181,16 @@
           type: "line",
           data: {
             labels: data.labels,
-            datasets: [
-              {
-                label: dataValue,
-                data: data.datasets,
-                backgroundColor: [
-                  "rgba(255, 99, 132, 0.2)",
-                ],
-                borderColor: [
-                  "rgba(255, 99, 132, 1)",
-                ],
-                borderWidth: 1,
-              },
-            ],
+            datasets: data.datasets
+            // [
+            //   {
+            //     label: dataValue,
+            //     data: data.datasets,
+            //     backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+            //     borderColor: ["rgba(255, 99, 132, 1)"],
+            //     borderWidth: 1,
+            //   },
+            // ],
           },
           options: {
             line: {
