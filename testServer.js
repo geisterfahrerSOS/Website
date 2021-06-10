@@ -1,15 +1,13 @@
 const http = require("http");
 const url = require("url");
 const fs = require("fs");
-const path = require("path");
-const host = "192.168.1.216";
-const port = 80;
 let result = "";
 //fs.sync in Zukunft weglassen
 http
   .createServer(function (req, res) {
     const pathname = url.parse(req.url, true).pathname;
     const queryObject = url.parse(req.url, true).query;
+    console.log(queryObject);
     switch (pathname.slice(1, pathname.length)) {
       case "addAthlete": //?lastName&firstName&age
         {
@@ -17,23 +15,23 @@ http
             fs.writeFileSync("./athletes.json", "[]");
             console.log("creating file");
           }
-          let athleteArray = JSON.parse(
+          let athleteArray = JSON.parse( //konvertiere die textdatei in ein Objekt um, mit welchem man leicht arbeiten kann
             fs.readFileSync("./athletes.json", { encoding: "utf-8" })
           );
           let id = 0;
           if (athleteArray.length > 0) {
             id = Number(athleteArray.slice(-1)[0].id) + 1;
           }
-          let athlete = {
+          let athlete = { //Athlet Objekt
             id: id,
-            lastName: queryObject.lastName,
+            lastName: queryObject.lastName, //daten vom Request
             firstName: queryObject.firstName,
             age: queryObject.age,
             shots: [],
             notes: queryObject.notes,
           };
-          athleteArray.push(athlete);
-          fs.writeFileSync("./athletes.json", JSON.stringify(athleteArray));
+          athleteArray.push(athlete); //athlet wird dem Array angehängt
+          fs.writeFileSync("./athletes.json", JSON.stringify(athleteArray)); //text datei wird mit array beschrieben
         }
         break;
       case "addShooting": //?mode&value(athlete)&result
@@ -46,7 +44,7 @@ http
             fs.readFileSync("./athletes.json", { encoding: "utf-8" })
           );
           let index = -1;
-          switch (queryObject.mode) {
+          switch (queryObject.mode) { //abfrage wie soll gesucht werden? gebe den index des athleten zurück
             case "id":
               index = athleteArray.findIndex(
                 (item) => item.id == queryObject.value
@@ -62,13 +60,13 @@ http
                 (item) => item.id == queryObject.value
               );
           }
-          console.log(index);
+          ///////////////////////////////
           let current = new Date();
           let id = 0;
           if (athleteArray[index].shots.length > 0) {
             id = Number(athleteArray[index].shots.slice(-1)[0].id) + 1;
           }
-          console.log(queryObject.result);
+          //////////////////////////////////////////////////Konvertiere x,y,z,a,b,c zu [{state: x, zeit: y}, {state: z, zeit: b}...]
           let shooting = queryObject.result.split(",");
           let shootingResult = [];
           for (let i = 0; i < shooting.length; i += 2) {
@@ -354,6 +352,6 @@ http
     res.end(result);
     result = "";
   })
-  .listen(port);
+  .listen(80);
 
-console.log(`Server started at http://localhost:${port}`);
+console.log(`Server started at http://localhost:${80}`);
