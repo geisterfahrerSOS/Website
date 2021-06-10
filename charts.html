@@ -20,7 +20,7 @@
         </select>
       </div>
     </div>
-    <div class="dropDownWrapper">
+    <!-- <div class="dropDownWrapper">
       <div class="dropDown">
         <label for="athleten">Datenreihe&nbsp;&nbsp;</label>
         <select
@@ -32,8 +32,8 @@
           <option value="noValue">Datenreihe auswählen...</option>
         </select>
       </div>
-    </div>
-    <!-- <div class="checkBoxWrapper">
+    </div> -->
+    <div class="checkBoxWrapper">
       <div class="checkBoxes">
         <input
           type="checkbox"
@@ -41,7 +41,7 @@
           id="defaultCheckbox"
         />Datenreihe auswählen...
       </div>
-    </div> -->
+    </div>
     <canvas
       id="myChart"
       width="800"
@@ -80,21 +80,40 @@
             option.innerHTML = `${count.firstName} ${count.lastName}`;
             dropDown.appendChild(option);
           }
-          dropDown = document.querySelectorAll("select")[1];
-          dropDown.innerHTML =
-            "<option value='noValue'>Datenreihe auswählen...</option>";
+          // dropDown = document.querySelectorAll("select")[1];
+          // dropDown.innerHTML =
+          //   "<option value='noValue'>Datenreihe auswählen...</option>";
+          // for (let count of datenreihen) {
+          //   let option = document.createElement("option");
+          //   console.log(count);
+          //   option.value = count;
+          //   option.innerHTML = count;
+          //   dropDown.appendChild(option);
+          // }
+          let checkBox = document.querySelectorAll(".checkBoxes")[0];
+          checkBox.innerHTML = ``;
           for (let count of datenreihen) {
-            let option = document.createElement("option");
-            console.log(count);
-            option.value = count;
-            option.innerHTML = count;
-            dropDown.appendChild(option);
+            let input = document.createElement("input");
+            input.setAttribute("type", "checkbox");
+            input.setAttribute("onChange", "submit()");
+            input.setAttribute("value", count);
+            input.setAttribute("id", count);
+            checkBox.appendChild(input);
+            checkBox.innerHTML += count + "&nbsp;&nbsp;";
           }
         };
       }
       function submit() {
         let value = document.querySelectorAll("select")[0].value;
-        let dataValue = document.querySelectorAll("select")[1].value;
+        let checkBox = document.querySelectorAll(".checkBoxes > input");
+        console.log(checkBox);
+        let dataValue = [];
+        for (let count of checkBox) {
+          if (count.checked) {
+            dataValue.push(count.value);
+          }
+        }
+        console.log(dataValue);
         if (athletes != null) {
           makeData(
             athletes[athletes.findIndex((item) => item.id == value)],
@@ -108,8 +127,8 @@
       function leftFillNum(num, targetLength) {
         return num.toString().padStart(targetLength, 0);
       }
-      function makeData(athlete, dataValue) {
-        data = {};
+      function makeData(athlete, dataValues) {
+        data = { labels: [], datasets: [] };
         data.labels = athlete.shots.map((item) => {
           let date = new Date(item.date);
           return (
@@ -124,50 +143,93 @@
             leftFillNum(date.getMinutes(), 2)
           );
         });
-        console.log(data.labels[0].length);
-        switch (dataValue) {
-          case "Trefferquote":
-            data.datasets = athlete.shots.map((item) => item.accuracy);
-            break;
-          case "Schusszeit":
-            data.datasets = athlete.shots.map((item) => item.result[4].time);
-            break;
-          case "1. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[0].time);
-            break;
-          case "2. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[1].time);
-            break;
-          case "3. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[2].time);
-            break;
-          case "4. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[3].time);
-            break;
-          case "5. Schuss":
-            data.datasets = athlete.shots.map((item) => item.result[4].time);
-            break;
-          default:
-            console.log("Fehler bei Datenreihen");
-            break;
+        for (let count of dataValues) {
+          switch (count) {
+            case "Trefferquote":
+              data.datasets.push({
+                label: count,
+                data: athlete.shots.map((item) => item.accuracy),
+                backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+                borderColor: ["rgba(255, 99, 132, 1)"],
+                borderWidth: 1,
+                yAxisID: "yAxisB",
+              });
+              break;
+            case "Schusszeit":
+              data.datasets.push({
+                label: count,
+                data: athlete.shots.map((item) => item.result[4].time),
+                backgroundColor: ["rgba(188, 216, 193, 0.2)"],
+                borderColor: ["rgba(188, 216, 193, 1)"],
+                borderWidth: 1,
+                yAxisID: "yAxisA",
+              });
+              break;
+            case "1. Schuss":
+              data.datasets.push({
+                label: count,
+                data: athlete.shots.map((item) => item.result[0].time),
+                backgroundColor: ["rgba(67, 97, 238, 0.2)"],
+                borderColor: ["rgba(67, 97, 238, 1)"],
+                borderWidth: 1,
+                yAxisID: "yAxisA",
+              });
+              break;
+            case "2. Schuss":
+              data.datasets.push({
+                label: count,
+                data: athlete.shots.map((item) => item.result[1].time),
+                backgroundColor: ["rgba(227, 217, 133, 0.2)"],
+                borderColor: ["rgba(227, 217, 133, 1)"],
+                borderWidth: 1,
+                yAxisID: "yAxisA",
+              });
+              break;
+            case "3. Schuss":
+              data.datasets.push({
+                label: count,
+                data: athlete.shots.map((item) => item.result[2].time),
+                backgroundColor: ["rgba(229, 122, 68, 0.2)"],
+                borderColor: ["rgba(229, 122, 68, 1)"],
+                borderWidth: 1,
+                yAxisID: "yAxisA",
+              });
+              break;
+            case "4. Schuss":
+              data.datasets.push({
+                label: count,
+                data: athlete.shots.map((item) => item.result[3].time),
+                backgroundColor: ["rgba(168, 218, 220, 0.2)"],
+                borderColor: ["rgba(168, 218, 220, 1)"],
+                borderWidth: 1,
+                yAxisID: "yAxisA",
+              });
+              break;
+            case "5. Schuss":
+              data.datasets.push({
+                label: count,
+                data: athlete.shots.map((item) => item.result[4].time),
+                backgroundColor: ["rgba(86, 227, 159, 0.2)"],
+                borderColor: ["rgba(86, 227, 159, 1)"],
+                borderWidth: 1,
+                yAxisID: "yAxisA",
+              });
+              break;
+            default:
+              console.log("Fehler bei Datenreihen");
+              break;
+          }
         }
+        console.log(data.datasets);
         if (created) {
           myChart.destroy();
         }
         let ctx = document.getElementById("myChart").getContext("2d");
-        myChart = new Chart(ctx, {
+        let options = {
           type: "line",
           data: {
             labels: data.labels,
-            datasets: [
-              {
-                label: dataValue,
-                data: data.datasets,
-                backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-                borderColor: ["rgba(255, 99, 132, 1)"],
-                borderWidth: 1,
-              },
-            ],
+            datasets: data.datasets,
           },
           options: {
             line: {
@@ -175,12 +237,30 @@
             },
             responsive: false,
             scales: {
-              y: {
-                beginAtZero: true,
+              yAxisA: {
+                type: "linear",
+                position: "left",
+                ticks: {
+                  callback: function (value, index, values) {
+                    return value + " s";
+                  },
+                },
+              },
+              yAxisB: {
+                type: "linear",
+                position: "right",
+                ticks: {
+                  beginAtZero: true,
+                  callback: function (value, index, values) {
+                    return value + " %";
+                  },
+                },
               },
             },
           },
-        });
+        };
+        console.log(options);
+        myChart = new Chart(ctx, options);
         created = true;
       }
     </script>
