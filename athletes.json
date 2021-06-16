@@ -625,11 +625,11 @@
         "date": "2021-06-02T09:52:06.817Z",
         "art": "stehend",
         "result": [
-          { "state": "1", "time": " 13.5" },
-          { "state": " 2", "time": " 17.4" },
-          { "state": " 0", "time": " 20" },
-          { "state": " 4", "time": " 23.1" },
-          { "state": " 5", "time": " 30.7" }
+          { "state": "1", "time": "13.5" },
+          { "state": "2", "time": "17.4" },
+          { "state": "0", "time": "20" },
+          { "state": "4", "time": "23.1" },
+          { "state": "5", "time": "30.7" }
         ],
         "accuracy": 100
       },
@@ -664,11 +664,11 @@
         "date": "2021-06-02T09:52:06.817Z",
         "art": "stehend",
         "result": [
-          { "state": "1", "time": " 13.5" },
-          { "state": " 2", "time": " 17.4" },
-          { "state": " 0", "time": " 20" },
-          { "state": " 4", "time": " 23.1" },
-          { "state": " 5", "time": " 30.7" }
+          { "state": "1", "time": "13.5" },
+          { "state": "2", "time": "17.4" },
+          { "state": "0", "time": "20" },
+          { "state": "4", "time": "23.1" },
+          { "state": "5", "time": "30.7" }
         ],
         "accuracy": 100
       },
@@ -677,11 +677,11 @@
         "date": "2021-06-02T09:52:06.817Z",
         "art": "stehend",
         "result": [
-          { "state": "1", "time": " 13.5" },
-          { "state": " 2", "time": " 17.4" },
-          { "state": " 0", "time": " 20" },
-          { "state": " 4", "time": " 23.1" },
-          { "state": " 5", "time": " 30.7" }
+          { "state": "1", "time": "13.5" },
+          { "state": "2", "time": "17.4" },
+          { "state": "0", "time": "20" },
+          { "state": "4", "time": "23.1" },
+          { "state": "5", "time": "30.7" }
         ],
         "accuracy": 100
       },
@@ -690,11 +690,11 @@
         "date": "2021-06-02T09:52:06.817Z",
         "art": "stehend",
         "result": [
-          { "state": "1", "time": " 13.5" },
-          { "state": " 2", "time": " 17.4" },
-          { "state": " 0", "time": " 20" },
-          { "state": " 4", "time": " 23.1" },
-          { "state": " 5", "time": " 30.7" }
+          { "state": "1", "time": "13.5" },
+          { "state": "2", "time": "17.4" },
+          { "state": "0", "time": "20" },
+          { "state": "4", "time": "23.1" },
+          { "state": "5", "time": "30.7" }
         ],
         "accuracy": 100
       }
@@ -779,6 +779,27 @@
     "lastName": "hkhf",
     "firstName": "sjdgkb",
     "age": "38",
+    "shots": []
+  },
+  {
+    "id": 13,
+    "lastName": "Holzer",
+    "firstName": "Tim",
+    "age": "23",
+    "shots": []
+  },
+  {
+    "id": 14,
+    "lastName": "Mayer",
+    "firstName": "Sabine",
+    "age": "22",
+    "shots": []
+  },
+  {
+    "id": 15,
+    "lastName": "Müller",
+    "firstName": "Florian",
+    "age": "30",
     "shots": []
   }
 ]

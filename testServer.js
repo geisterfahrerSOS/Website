@@ -352,6 +352,6 @@ http
     res.end(result);
     result = "";
   })
-  .listen(80);
+  .listen(80, '127.0.0.1');
 
-console.log(`Server started at http://localhost:${80}`);
+console.log(`Server started at http://127.0.0.1:${80}`);

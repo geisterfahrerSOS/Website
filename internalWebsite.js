@@ -140,10 +140,10 @@ console.log(shooting);
       console.log("fehler: " + shooting.result[i].time);
     } else {
       console.log("treffer: " + shooting.result[i].time);
+      console.log(shooting.result[i].state - 1);
       let div =
         shootingNode.querySelectorAll(".shot")[(shooting.result[i].state - 1) % 5];
-        console.log(div);
-        console.log(shooting.result[i].state - 1);
+        
       div.childNodes[1].style.backgroundColor = "#ffffff";
       div.childNodes[3].innerHTML = shooting.result[i].time;
     }
