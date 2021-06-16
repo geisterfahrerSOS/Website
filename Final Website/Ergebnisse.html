@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ergebnisse</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styleNew.css" />
+    <link rel="stylesheet" href="styleErgebnisse.css">
+  </head>
+  <body>
+    <div class="mainBody">
+      <div class="header">
+        <div class="title">
+          <h1>Automatische Scheibenanlage</h1>
+        </div>
+      </div>
+      <div class="mainWrapper">
+        <div class="navBarWrapper">
+          <div class="navWrapper">
+            <div class="linkWrapper">
+              <a href="./Home.html">Home</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Ergebnisse.html">Ergebnisse</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Diagramme.html">Diagramme</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Funktionsweise.html">Funktionsweise</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Kontakt.html">Kontakt</a>
+            </div>
+          </div>
+        </div>
+        <div class="displayWrapper">
+          <div class="dropDownWrapper">
+            <div class="dropDown">
+              <label for="athleten">Athlet&nbsp;&nbsp;</label>
+              <select
+                name="Athleten"
+                class="athleteDropDown"
+                onchange="submit(this.value);"
+                style="border-radius: 4px; padding: 2px"
+              >
+                <option value="noValue">Athleten auswählen...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="shooting">
+            <div class="datumLabel">Datum</div>
+            <div class="artLabel">Schussart</div>
+            <div class="zeitLabel">Zeit</div>
+            <div class="trefferQuoteLabel">Trefferquote</div>
+            <div class="shotLabel">Schuss Grafik</div>
+            <div class="zeitAufteilungLabel">Zeitaufteilung</div>
+            <div class="datum">
+              <div class="uhrzeit">16:45</div>
+              <div class="datumKurz">23.07.2021</div>
+            </div>
+            <div class="art">Liegend</div>
+            <div class="zeitWrapper">
+              <div class="zeit" style="font-size: x-large">29.4 s</div>
+            </div>
+            <div class="trefferQuote" style="font-size: x-large">80 %</div>
+            <div class="shotsWrapper">
+              <div class="shot">
+                <div class="dot"></div>
+                <div class="time"></div>
+              </div>
+              <div class="shot">
+                <div class="dot"></div>
+                <div class="time"></div>
+              </div>
+              <div class="shot">
+                <div class="dot"></div>
+                <div class="time"></div>
+              </div>
+              <div class="shot">
+                <div class="dot"></div>
+                <div class="time"></div>
+              </div>
+              <div class="shot">
+                <div class="dot"></div>
+                <div class="time"></div>
+              </div>
+            </div>
+            <div class="canvasWrapper">
+              <canvas class="myCanvas" width="300px" height="40px"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footerWrapper">
+        <div class="footer">Von Lena Haslach und Marco Deuritz</div>
+      </div>
+    </div>
+  </body>
+  <script src="./internalWebsite.js"></script>
+
+</html>

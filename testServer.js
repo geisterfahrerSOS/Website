@@ -8,6 +8,7 @@ http
     const pathname = url.parse(req.url, true).pathname;
     const queryObject = url.parse(req.url, true).query;
     console.log(queryObject);
+    console.log(pathname.slice(1, pathname.length));
     switch (pathname.slice(1, pathname.length)) {
       case "addAthlete": //?lastName&firstName&age
         {
@@ -15,14 +16,16 @@ http
             fs.writeFileSync("./athletes.json", "[]");
             console.log("creating file");
           }
-          let athleteArray = JSON.parse( //konvertiere die textdatei in ein Objekt um, mit welchem man leicht arbeiten kann
+          let athleteArray = JSON.parse(
+            //konvertiere die textdatei in ein Objekt um, mit welchem man leicht arbeiten kann
             fs.readFileSync("./athletes.json", { encoding: "utf-8" })
           );
           let id = 0;
           if (athleteArray.length > 0) {
             id = Number(athleteArray.slice(-1)[0].id) + 1;
           }
-          let athlete = { //Athlet Objekt
+          let athlete = {
+            //Athlet Objekt
             id: id,
             lastName: queryObject.lastName, //daten vom Request
             firstName: queryObject.firstName,
@@ -44,7 +47,9 @@ http
             fs.readFileSync("./athletes.json", { encoding: "utf-8" })
           );
           let index = -1;
-          switch (queryObject.mode) { //abfrage wie soll gesucht werden? gebe den index des athleten zurück
+          switch (
+            queryObject.mode //abfrage wie soll gesucht werden? gebe den index des athleten zurück
+          ) {
             case "id":
               index = athleteArray.findIndex(
                 (item) => item.id == queryObject.value
@@ -72,7 +77,9 @@ http
           for (let i = 0; i < shooting.length; i += 2) {
             shootingResult.push({ state: shooting[i], time: shooting[i + 1] });
           }
-          let accuracy = (5 - shootingResult.filter((item) => item.state == "0").length) * 20;
+          let accuracy =
+            (5 - shootingResult.filter((item) => item.state == "0").length) *
+            20;
           console.log(shootingResult);
           athleteArray[index].shots.push({
             id: id,
@@ -343,6 +350,29 @@ http
           }
         }
         break;
+      case "sendMessage": {
+        if (!fs.existsSync("./messages.json")) {
+          fs.writeFileSync("./messages.json", "[]");
+          console.log("creating file");
+        }
+        let messageArray = JSON.parse(
+          //konvertiere die textdatei in ein Objekt um, mit welchem man leicht arbeiten kann
+          fs.readFileSync("./messages.json", { encoding: "utf-8" })
+        );
+        let idIndex = 0;
+          if (messageArray.length > 0) {
+            idIndex = messageArray.slice(-1)[0].id + 1;
+          }
+        let message = {
+          id: idIndex,
+          name: queryObject.name,
+          message: queryObject.message,
+          date: new Date(),
+        };
+        messageArray.push(message);
+        fs.writeFileSync("./messages.json", JSON.stringify(messageArray));
+      }
+      break;
       default:
         console.log("Command not found");
         result = `Command "${pathname.slice(1, pathname.length)}" not found`;
@@ -352,6 +382,6 @@ http
     res.end(result);
     result = "";
   })
-  .listen(80, '127.0.0.1');
+  .listen(80, "127.0.0.1");
 
 console.log(`Server started at http://127.0.0.1:${80}`);

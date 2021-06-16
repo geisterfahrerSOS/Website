@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "Marco Deuritz",
+    "message": "Das ist meine Nachricht...",
+    "date": "2021-06-16T14:23:45.415Z"
+  },
+  {
+    "id": 1,
+    "name": "Max Mustermann",
+    "message": "Das ist eine Nachricht",
+    "date": "2021-06-16T14:24:41.920Z"
+  },
+  {
+    "id": 2,
+    "name": "Max Mustermann",
+    "message": "Das ist eine Nachricht",
+    "date": "2021-06-16T14:25:05.679Z"
+  }
+]

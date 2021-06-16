@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schuss Analyse</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styleNew.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./diagramme.js"></script>
+  </head>
+  <body>
+    <div class="mainBody">
+      <div class="header">
+        <div class="title">
+          <h1>Automatische Scheibenanlage</h1>
+        </div>
+      </div>
+      <div class="mainWrapper">
+        <div class="navBarWrapper">
+          <div class="navWrapper">
+            <div class="linkWrapper">
+              <a href="./Home.html">Home</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Ergebnisse.html">Ergebnisse</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Diagramme.html">Diagramme</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Funktionsweise.html">Funktionsweise</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Kontakt.html">Kontakt</a>
+            </div>
+          </div>
+        </div>
+        <div class="displayWrapper">
+          <div class="dropDownWrapper">
+            <div class="dropDown">
+              <label for="athleten">Athlet&nbsp;&nbsp;</label>
+              <select
+                name="Athleten"
+                class="athleteDropDown"
+                style="border-radius: 4px; padding: 2px"
+                onchange="submit(this.value)"
+              >
+                <option value="noValue">Athleten auswählen...</option>
+              </select>
+            </div>
+          </div>
+          <div class="checkBoxWrapper">
+            <div class="checkBoxes">
+              <input
+                type="checkbox"
+                value="Datenreihe auswählen"
+                id="defaultCheckbox"
+              />Datenreihe auswählen...
+            </div>
+          </div>
+          <canvas
+            id="myChart"
+            width="800"
+            height="600"
+            style="margin: auto; margin-top: 40px"
+          ></canvas>
+        </div>
+      </div>
+      <div class="footerWrapper">
+        <div class="footer">Von Lena Haslach und Marco Deuritz</div>
+      </div>
+    </div>
+  </body>
+</html>

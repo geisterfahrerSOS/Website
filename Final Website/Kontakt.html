@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styleNew.css" />
+  </head>
+  <body>
+    <div class="mainBody">
+      <div class="header">
+        <div class="title">
+          <h1>Automatische Scheibenanlage</h1>
+        </div>
+      </div>
+      <div class="mainWrapper">
+        <div class="navBarWrapper">
+          <div class="navWrapper">
+            <div class="linkWrapper">
+              <a href="./Home.html">Home</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Ergebnisse.html">Ergebnisse</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Diagramme.html">diagramme</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Funktionsweise.html">Funktionsweise</a>
+            </div>
+            <div class="linkWrapper">
+              <a href="./Kontakt.html">Kontakt</a>
+            </div>
+          </div>
+        </div>
+        <div class="displayWrapper">
+          <h1>Kontakt</h1>
+          <p>Schreiben Sie uns eine Nachricht mit Ihrem Anliegen</p>
+            <label for="name">Name</label><br />
+            <input type="text" id="name" name="name" /><br />
+            <label for="nachricht">Nachricht</label><br />
+            <textarea id="nachricht" name="nachricht" rows="4" cols="50">
+            </textarea><br>
+            <input type="button" value="Submit" onclick="submit(this)"/>
+        </div>
+      </div>
+      <div class="footerWrapper">
+        <div class="footer">Von Lena Haslach und Marco Deuritz</div>
+      </div>
+    </div>
+  </body>
+  <script src="./kontakt.js"></script>
+</html>
