@@ -5,8 +5,17 @@ function submit(value) {
   const url = "http://localhost/sendMessage?name="+name+"&message="+message;
   Http.open("GET", url);
   Http.send();
+  document.querySelectorAll(".output")[0].classList.add("loader");
 
   Http.onreadystatechange = (e) => {
-    athletes = JSON.parse(Http.responseText);
+    if(e.currentTarget.status == 200) {
+      document.querySelectorAll(".output")[0].classList.remove("loader");
+      document.querySelectorAll(".output")[0].innerHTML = "Daten erfolgreich an den Server übermittelt";
+    }
+    else 
+    {
+      document.querySelectorAll(".output")[0].classList.remove("loader");
+      document.querySelectorAll(".output")[0].innerHTML = "Fehler beim Senden der Nachricht an den Server";
+    }
   };
 }
