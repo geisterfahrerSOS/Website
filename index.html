@@ -1,12 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pjag</title>
-</head>
-<body>
-    <a href="./Final Website/Home.html">Home</a>
-</body>
+<html>
+  <head>
+    <style>
+      table {
+        border: 2px solid black;
+        border-collapse: collapse;
+      }
+      td {
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr style="font-weight: bolder">
+        <td>Name</td>
+        <td>Status</td>
+      </tr>
+      <tr>
+        <td>Pin 1</td>
+        <td class="PIN1">AN</td>
+      </tr>
+      <tr>
+        <td>Pin 2</td>
+        <td class="PIN2">AUS</td>
+      </tr>
+      <tr>
+        <td>Pin 3</td>
+        <td class="PIN3">AUS</td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    for (let i = 1; i < 4; i++) {
+      let box = document.querySelectorAll(".PIN" + i)[0];
+      console.log(box);
+      if (serverRequest(i) == 1) {
+        box.innerHTML = "EIN";
+        console.log("EIN");
+      } else {
+        box.innerHTML = "AUS";
+        console.log("AUS");
+      }
+    }
+
+    function serverRequest(pin) {
+      return Math.round(Math.random());
+    }
+  </script>
 </html>

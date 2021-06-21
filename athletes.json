@@ -76,6 +76,487 @@
           { "state": "4", "time": "23.1" },
           { "state": "0", "time": "33.2" }
         ]
+      },
+      {
+        "id": 29,
+        "date": "2021-06-20T14:05:44.221Z",
+        "art": "",
+        "result": [
+          { "state": "1", "time": "3.28" },
+          { "state": "2", "time": "4.65" },
+          { "state": "3", "time": "7.16" },
+          { "state": "5", "time": "9.51" },
+          { "state": "5", "time": "13.55" }
+        ],
+        "accuracy": 100
+      },
+      {
+        "id": 30,
+        "date": "2021-06-20T14:07:20.962Z",
+        "art": "",
+        "result": [
+          { "state": "2", "time": "4.09" },
+          { "state": "3", "time": "5.48" },
+          { "state": "4", "time": "8.54" },
+          { "state": "5", "time": "9.77" },
+          { "state": "4", "time": "12.27" }
+        ],
+        "accuracy": 100
+      },
+      {
+        "id": 31,
+        "date": "2021-06-20T14:09:00.973Z",
+        "art": "",
+        "result": [
+          { "state": "4", "time": "8.19" },
+          { "state": "1", "time": "5.65" },
+          { "state": "2", "time": "8.90" },
+          { "state": "3", "time": "10.89" },
+          { "state": "4", "time": "12.77" }
+        ],
+        "accuracy": 100
+      },
+      {
+        "id": 32,
+        "date": "2021-06-20T14:12:02.728Z",
+        "art": "",
+        "result": [
+          { "state": "1", "time": "3.09" },
+          { "state": "2", "time": "4.69" },
+          { "state": "3", "time": "6.24" },
+          { "state": "4", "time": "7.95" },
+          { "state": "5", "time": "9.90" }
+        ],
+        "accuracy": 100
+      },
+      {
+        "id": 33,
+        "date": "2021-06-20T14:12:28.202Z",
+        "art": "",
+        "result": [
+          { "state": "2", "time": "4.68" },
+          { "state": "2", "time": "8.41" },
+          { "state": "3", "time": "10.09" },
+          { "state": "4", "time": "11.81" },
+          { "state": "5", "time": "13.47" }
+        ],
+        "accuracy": 100
+      },
+      {
+        "id": 34,
+        "date": "2021-06-20T14:12:48.558Z",
+        "art": "",
+        "result": [
+          { "state": "1", "time": "2.97" },
+          { "state": "2", "time": "7.25" },
+          { "state": "3", "time": "9.29" },
+          { "state": "4", "time": "10.91" },
+          { "state": "5", "time": "12.63" }
+        ],
+        "accuracy": 100
+      },
+      {
+        "id": 35,
+        "date": "2021-06-20T14:14:16.026Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 36,
+        "date": "2021-06-20T14:18:11.438Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 37,
+        "date": "2021-06-20T14:44:55.316Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 38,
+        "date": "2021-06-20T14:54:40.529Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 39,
+        "date": "2021-06-20T15:04:47.962Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 40,
+        "date": "2021-06-20T15:20:56.533Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "0.00" },
+          { "state": "0", "time": "3.81" },
+          { "state": "0", "time": "3.90" },
+          { "state": "0", "time": "3.95" },
+          { "state": "0", "time": "8.11" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 41,
+        "date": "2021-06-20T15:22:28.715Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "0.00" },
+          { "state": "1", "time": "11.82" },
+          { "state": "0", "time": "11.86" },
+          { "state": "0", "time": "11.91" },
+          { "state": "0", "time": "12.01" }
+        ],
+        "accuracy": 20
+      },
+      {
+        "id": 42,
+        "date": "2021-06-20T15:22:51.851Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "0.00" },
+          { "state": "1", "time": "3.12" },
+          { "state": "0", "time": "3.15" },
+          { "state": "0", "time": "3.20" },
+          { "state": "0", "time": "3.30" }
+        ],
+        "accuracy": 20
+      },
+      {
+        "id": 43,
+        "date": "2021-06-20T15:27:48.198Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "0.00" },
+          { "state": "1", "time": "30.79" },
+          { "state": "0", "time": "30.83" },
+          { "state": "0", "time": "30.90" },
+          { "state": "0", "time": "31.02" }
+        ],
+        "accuracy": 20
+      },
+      {
+        "id": 44,
+        "date": "2021-06-20T15:29:23.529Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "0.07" },
+          { "state": "0", "time": "2.41" },
+          { "state": "0", "time": "2.45" },
+          { "state": "0", "time": "2.54" },
+          { "state": "0", "time": "2.65" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 45,
+        "date": "2021-06-20T15:30:31.217Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "5.18" },
+          { "state": "0", "time": "5.22" },
+          { "state": "0", "time": "5.34" },
+          { "state": "0", "time": "5.43" },
+          { "state": "0", "time": "-1.00" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 46,
+        "date": "2021-06-20T15:37:24.045Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "0.00" },
+          { "state": "1", "time": "6.43" },
+          { "state": "2", "time": "15.94" },
+          { "state": "3", "time": "18.63" },
+          { "state": "4", "time": "20.28" }
+        ],
+        "accuracy": 80
+      },
+      {
+        "id": 47,
+        "date": "2021-06-20T15:40:42.645Z",
+        "art": "",
+        "result": [
+          { "state": "1", "time": "2.93" },
+          { "state": "2", "time": "4.69" },
+          { "state": "3", "time": "6.43" },
+          { "state": "0", "time": "8.91" },
+          { "state": "4", "time": "11.07" }
+        ],
+        "accuracy": 80
+      },
+      {
+        "id": 48,
+        "date": "2021-06-20T15:41:13.875Z",
+        "art": "",
+        "result": [
+          { "state": "2", "time": "4.38" },
+          { "state": "2", "time": "6.40" },
+          { "state": "0", "time": "9.23" },
+          { "state": "4", "time": "17.88" },
+          { "state": "4", "time": "19.81" }
+        ],
+        "accuracy": 80
+      },
+      {
+        "id": 49,
+        "date": "2021-06-20T15:41:49.410Z",
+        "art": "",
+        "result": [
+          { "state": "0", "time": "8.29" },
+          { "state": "0", "time": "10.02" },
+          { "state": "1", "time": "23.00" },
+          { "state": "2", "time": "25.52" },
+          { "state": "0", "time": "29.54" }
+        ],
+        "accuracy": 40
+      },
+      {
+        "id": 50,
+        "date": "2021-06-20T15:45:30.079Z",
+        "art": "",
+        "result": [
+          { "state": "1", "time": "2.53" },
+          { "state": "2", "time": "4.46" },
+          { "state": "0", "time": "5.92" },
+          { "state": "4", "time": "10.80" },
+          { "state": "5", "time": "11.94" }
+        ],
+        "accuracy": 80
+      },
+      {
+        "id": 51,
+        "date": "2021-06-20T15:49:41.755Z",
+        "art": "liegend",
+        "result": [
+          { "state": "1", "time": "14.77" },
+          { "state": "2", "time": "17.55" },
+          { "state": "3", "time": "19.17" },
+          { "state": "4", "time": "20.77" },
+          { "state": "5", "time": "22.45" }
+        ],
+        "accuracy": 100
+      },
+      {
+        "id": 52,
+        "date": "2021-06-20T15:52:22.734Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "0.55" },
+          { "state": "1", "time": "3.10" },
+          { "state": "0", "time": "5.57" },
+          { "state": "3", "time": "9.68" },
+          { "state": "4", "time": "11.49" }
+        ],
+        "accuracy": 60
+      },
+      {
+        "id": 53,
+        "date": "2021-06-20T15:52:43.433Z",
+        "art": "liegend",
+        "result": [
+          { "state": "1", "time": "2.48" },
+          { "state": "2", "time": "3.82" },
+          { "state": "5", "time": "7.80" },
+          { "state": "0", "time": "9.41" },
+          { "state": "0", "time": "10.52" }
+        ],
+        "accuracy": 60
+      },
+      {
+        "id": 54,
+        "date": "2021-06-20T16:07:26.229Z",
+        "art": "liegend",
+        "result": [
+          { "state": "5", "time": "0.93" },
+          { "state": "2", "time": "3.80" },
+          { "state": "3", "time": "6.81" },
+          { "state": "4", "time": "9.26" },
+          { "state": "0", "time": "11.54" }
+        ],
+        "accuracy": 80
+      },
+      {
+        "id": 55,
+        "date": "2021-06-20T16:08:16.003Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "0.00" },
+          { "state": "1", "time": "2.89" },
+          { "state": "2", "time": "5.93" },
+          { "state": "3", "time": "8.41" },
+          { "state": "0", "time": "10.62" }
+        ],
+        "accuracy": 60
+      },
+      {
+        "id": 56,
+        "date": "2021-06-20T16:09:32.064Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "0.00" },
+          { "state": "5", "time": "37.06" },
+          { "state": "5", "time": "41.41" },
+          { "state": "1", "time": "46.42" },
+          { "state": "0", "time": "48.64" }
+        ],
+        "accuracy": 60
+      },
+      {
+        "id": 57,
+        "date": "2021-06-20T16:12:34.534Z",
+        "art": "liegend",
+        "result": [
+          { "state": "1", "time": "8.11" },
+          { "state": "5", "time": "12.15" },
+          { "state": "3", "time": "15.37" },
+          { "state": "5", "time": "16.74" },
+          { "state": "4", "time": "25.84" }
+        ],
+        "accuracy": 100
+      },
+      {
+        "id": 58,
+        "date": "2021-06-20T16:13:48.061Z",
+        "art": "liegend",
+        "result": [
+          { "state": "1", "time": "11.56" },
+          { "state": "2", "time": "14.30" },
+          { "state": "0", "time": "16.64" },
+          { "state": "1", "time": "19.16" },
+          { "state": "0", "time": "21.60" }
+        ],
+        "accuracy": 60
+      },
+      {
+        "id": 59,
+        "date": "2021-06-20T16:23:08.395Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "5.48" },
+          { "state": "1", "time": "16.23" },
+          { "state": "2", "time": "21.00" },
+          { "state": "3", "time": "24.92" },
+          { "state": "4", "time": "27.64" }
+        ],
+        "accuracy": 80
+      },
+      {
+        "id": 60,
+        "date": "2021-06-20T16:24:18.314Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "2.99" },
+          { "state": "4", "time": "54.74" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" }
+        ],
+        "accuracy": 20
+      },
+      {
+        "id": 61,
+        "date": "2021-06-20T16:25:24.377Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "1.37" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" },
+          { "state": "0", "time": "-1.00" }
+        ],
+        "accuracy": 0
+      },
+      {
+        "id": 62,
+        "date": "2021-06-20T16:28:22.862Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "10.78" },
+          { "state": "1", "time": "16.08" },
+          { "state": "1", "time": "18.00" },
+          { "state": "1", "time": "20.06" },
+          { "state": "1", "time": "23.79" }
+        ],
+        "accuracy": 80
+      },
+      {
+        "id": 63,
+        "date": "2021-06-20T16:29:37.610Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "14.82" },
+          { "state": "2", "time": "16.43" },
+          { "state": "3", "time": "26.99" },
+          { "state": "0", "time": "33.41" },
+          { "state": "2", "time": "34.45" }
+        ],
+        "accuracy": 60
+      },
+      {
+        "id": 64,
+        "date": "2021-06-20T16:30:00.983Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "3.16" },
+          { "state": "2", "time": "5.26" },
+          { "state": "2", "time": "14.84" },
+          { "state": "2", "time": "16.39" },
+          { "state": "1", "time": "17.45" }
+        ],
+        "accuracy": 80
+      },
+      {
+        "id": 65,
+        "date": "2021-06-20T16:33:14.451Z",
+        "art": "liegend",
+        "result": [
+          { "state": "0", "time": "5.04" },
+          { "state": "2", "time": "7.87" },
+          { "state": "1", "time": "12.03" },
+          { "state": "3", "time": "15.51" },
+          { "state": "4", "time": "16.80" }
+        ],
+        "accuracy": 80
       }
     ]
   },
@@ -611,6 +1092,19 @@
           { "state": "4", "time": "10.43" },
           { "state": "5", "time": "24.82" }
         ]
+      },
+      {
+        "id": 14,
+        "date": "2021-06-20T13:59:43.893Z",
+        "art": "",
+        "result": [
+          { "state": "1", "time": "14.09" },
+          { "state": "2", "time": "15.59" },
+          { "state": "3", "time": "16.94" },
+          { "state": "4", "time": "18.33" },
+          { "state": "5", "time": "19.59" }
+        ],
+        "accuracy": 100
       }
     ]
   },
