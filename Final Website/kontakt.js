@@ -1,11 +1,12 @@
 function submit(value) {
+  document.querySelectorAll(".output")[0].innerHTML = "";
+  document.querySelectorAll(".output")[0].classList.add("loader");
     let name = document.querySelectorAll("#name")[0].value;
     let message = document.querySelectorAll("#nachricht")[0].value;
   const Http = new XMLHttpRequest();
   const url = "http://localhost/sendMessage?name="+name+"&message="+message;
   Http.open("GET", url);
   Http.send();
-  document.querySelectorAll(".output")[0].classList.add("loader");
 
   Http.onreadystatechange = (e) => {
     if(e.currentTarget.status == 200) {
