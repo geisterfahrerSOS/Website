@@ -3,12 +3,12 @@ body {
   margin: 0px;
 }
 .header {
-  background-image: url("./image.jpg");
+  background-image: url("./Bilder/Vorderansicht2.jpeg");
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  color: white;
+  height: 190px;
+  color: black;
 }
 .mainBody {
   width: 1200px;

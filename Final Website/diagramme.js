@@ -101,7 +101,7 @@ let created = false;
                 data: athlete.shots.map((item) => item.accuracy),
                 backgroundColor: ["rgba(255, 99, 132, 0.2)"],
                 borderColor: ["rgba(255, 99, 132, 1)"],
-                borderWidth: 1,
+                borderWidth: 2,
                 yAxisID: "yAxisB",
               });
               break;
@@ -111,7 +111,7 @@ let created = false;
                 data: athlete.shots.map((item) => item.result[4].time),
                 backgroundColor: ["rgba(226, 160, 255, 0.2)"],
                 borderColor: ["rgba(226, 160, 255, 1)"],
-                borderWidth: 1,
+                borderWidth: 2,
                 yAxisID: "yAxisA",
               });
               break;
@@ -121,7 +121,7 @@ let created = false;
                 data: athlete.shots.map((item) => item.result[0].time),
                 backgroundColor: ["rgba(67, 97, 238, 0.2)"],
                 borderColor: ["rgba(67, 97, 238, 1)"],
-                borderWidth: 1,
+                borderWidth: 2,
                 yAxisID: "yAxisA",
               });
               break;
@@ -131,7 +131,7 @@ let created = false;
                 data: athlete.shots.map((item) => item.result[1].time),
                 backgroundColor: ["rgba(227, 217, 133, 0.2)"],
                 borderColor: ["rgba(227, 217, 133, 1)"],
-                borderWidth: 1,
+                borderWidth: 2,
                 yAxisID: "yAxisA",
               });
               break;
@@ -141,7 +141,7 @@ let created = false;
                 data: athlete.shots.map((item) => item.result[2].time),
                 backgroundColor: ["rgba(229, 122, 68, 0.2)"],
                 borderColor: ["rgba(229, 122, 68, 1)"],
-                borderWidth: 1,
+                borderWidth: 2,
                 yAxisID: "yAxisA",
               });
               break;
@@ -151,7 +151,7 @@ let created = false;
                 data: athlete.shots.map((item) => item.result[3].time),
                 backgroundColor: ["rgba(112, 171, 175, 0.2)"],
                 borderColor: ["rgba(112, 171, 175, 1)"],
-                borderWidth: 1,
+                borderWidth: 2,
                 yAxisID: "yAxisA",
               });
               break;
@@ -161,7 +161,7 @@ let created = false;
                 data: athlete.shots.map((item) => item.result[4].time),
                 backgroundColor: ["rgba(86, 227, 159, 0.2)"],
                 borderColor: ["rgba(86, 227, 159, 1)"],
-                borderWidth: 1,
+                borderWidth: 2,
                 yAxisID: "yAxisA",
               });
               break;
@@ -194,6 +194,7 @@ let created = false;
                   callback: function (value, index, values) {
                     return value + " s";
                   },
+
                 },
               },
               yAxisB: {

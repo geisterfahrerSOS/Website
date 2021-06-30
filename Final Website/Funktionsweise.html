@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Funktionsweise</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
@@ -34,20 +34,107 @@
               <a href="./Funktionsweise.html">Funktionsweise</a>
             </div>
             <div class="linkWrapper">
-                <a href="./Kontakt.html">Kontakt</a>
+              <a href="./Kontakt.html">Kontakt</a>
             </div>
           </div>
         </div>
         <div class="displayWrapper">
-            <h1>Funktionsweise</h1>
-            <p>Die Automatische Scheibenanlage registriert Treffer und Fehler und zeigt die benötigte Zeit an.</p>
+          <h1>Funktionsweise</h1>
+          <p>
+            Das Grundprinzip der Automatischen Scheibenanlage ist das
+            Registrieren von Treffer und Fehler, als auch die dafür benötigten
+            Zeit. Diese Daten können per Website ausgelesen und analysiert
+            werden.
+          </p>
+          <p>
+            Die Hardware besteht aus einer klassischen Luftgewehr-Schießanlage,
+            welche mit fünf Taster, zur Treffererkennung, und einem
+            Beschleunigungssensor, zur Fehlererkennung, ausgestattet ist.
+          </p>
+          <div style="display: flex">
+            <img
+              src="./Bilder/Vorderansicht.jpeg"
+              alt="Vordere Ansicht"
+              width="450px"
+              style="margin-right: 5px"
+            />
+            <img
+              src="./Bilder/Hintere_Ansicht.jpeg"
+              alt="Hintere Ansicht"
+              width="450px"
+              style="margin-left: 5px"
+            />
+          </div>
+          <p>
+            Die Taster sind über eine eine Holzlatte, mit Einkerbungen, an dem
+            Schießstand befestigt. Wenn eine Platte umfällt, registriert der
+            zugehörige Taster, dass er für kurze Zeit gedrückt wurde. Dieses
+            Prinzip ist die Grundlage für die Erkennungen eines Treffers
+          </p>
+          <div style="display: flex">
+            <img
+              src="./Bilder/Beschl.jpeg"
+              alt="Beschleunigungssensor"
+              width="450px"
+              style="margin-right: 10px"
+            />
+            Die Treffererkennung geschieht mittels eines Beschleunigungssensor.
+            Dieser misst die Erschütterung am Schießstand und kann so Fehler
+            erkennen, welche die Weiße Rückwand des Schießstands treffen. Dieses
+            Prinzip kann natürlich nicht erkennen ob ein Schuss die
+            Scheibenanlage komplett verfehlt, weil keine Erschütterung gemessen
+            werden kann. <br />
+            Wenn bei einer Erschütterung beinahe Zeitgleich ein treffer erkannt
+            wird, wird der Treffer bevorzugt gewertet. Denn bei einem
+            Randtreffer oder in gewissen Außnahmen wird bei einem Treffer die
+            Platte genauso stark erschüttert als bei einem Fehler. <br />
+            Die Kommunikation findet über das I2C Kommunikationsprotokoll statt
+            und wird über die "Wire.h" Library abgewicklt. Zum auslesen der
+            Daten werden spezifische Register des Speichers auf dem
+            Beschleunigungssensor ausgelesen. <br />
+            Im Abständen von 8 ms wird im Code der Zustand des Sensors
+            ausgelesen. Durch ein Vergleichen von aufeinanderfolgenden Werten,
+            wird die Erschütterunf ermittelt.
+          </div>
+          <div style="display: flex; margin-top: 20px">
+            Ein weiteres Feature des Automatisierten Schießstands ist das
+            Automatische zurückstellen der Klappen nach der Abgabe von fünf
+            Schüssen. <br />
+            Wie auf dem Bild zu erkennen ist ist ein Servo für das aufstellen
+            der Platten verantwortlich. Dieser "zieht" an der bereits
+            vorhandenen Aufstellschnur um die Platten aufzustellen. <br />
+            Der Servo besitzt wegen der hohen Gewichts der Klappen ein sehr
+            hohes drehmoment von ca. 0.2 Nm. Daher benötigt es eine separate
+            Spannungsversorgung, weil der Strom des Wemos D1 mini nicht
+            ausreicht. <br />
+            Im Code wird der Servo über die "Servo.h" library angesteuert.
+            <img
+              src="./Bilder/Servo.jpeg"
+              alt="Servo"
+              width="450px"
+              style="margin-left: 10px; margin-bottom: 10px"
+            />
+          </div>
+          Alle Sensordaten werden vom Wemos D1 Mini Mikrocontroller erfasst und
+          über die eingebaute Wlanfähigkeit an einen, im lokalen Netzwerk
+          befindlichen, Server weitergeleitet. <br />
+          Der Server verarbeitet die Schussdaten und schreibt diese in eine json
+          Datei, welche als Datenbank fungiert. <br />
+          Diese Daten werden über einen httpRequest von der Webseite abgefragt
+          und über die Library Chart.js visuell dargestellt. Im bereich
+          Ergebnisse werden einfache HTML-Elemente zur anzeige der Daten
+          benutzt.
+          <img
+            src="./Bilder/Wemos D1 Mini.jpeg"
+            alt="Wemos D1 Mini"
+            width="900px"
+            style="margin-top: 10px"
+          />
         </div>
       </div>
       <div class="footerWrapper">
-        <div class="footer">
-            Von Lena Haslach und Marco Deuritz
-        </div>
-    </div>
+        <div class="footer">Von Lena Haslach und Marco Deuritz</div>
+      </div>
     </div>
   </body>
 </html>

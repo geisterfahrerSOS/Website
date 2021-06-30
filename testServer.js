@@ -89,7 +89,6 @@ http
             accuracy: accuracy,
             notes: queryObject.notes,
           });
-          //console.log(athleteArray);
           fs.writeFileSync("./athletes.json", JSON.stringify(athleteArray));
           result = "added new shooting...";
         }
@@ -350,29 +349,30 @@ http
           }
         }
         break;
-      case "sendMessage": {
-        if (!fs.existsSync("./messages.json")) {
-          fs.writeFileSync("./messages.json", "[]");
-          console.log("creating file");
-        }
-        let messageArray = JSON.parse(
-          //konvertiere die textdatei in ein Objekt um, mit welchem man leicht arbeiten kann
-          fs.readFileSync("./messages.json", { encoding: "utf-8" })
-        );
-        let idIndex = 0;
+      case "sendMessage":
+        {
+          if (!fs.existsSync("./messages.json")) {
+            fs.writeFileSync("./messages.json", "[]");
+            console.log("creating file");
+          }
+          let messageArray = JSON.parse(
+            //konvertiere die textdatei in ein Objekt um, mit welchem man leicht arbeiten kann
+            fs.readFileSync("./messages.json", { encoding: "utf-8" })
+          );
+          let idIndex = 0;
           if (messageArray.length > 0) {
             idIndex = messageArray.slice(-1)[0].id + 1;
           }
-        let message = {
-          id: idIndex,
-          name: queryObject.name,
-          message: queryObject.message,
-          date: new Date(),
-        };
-        messageArray.push(message);
-        fs.writeFileSync("./messages.json", JSON.stringify(messageArray));
-      }
-      break;
+          let message = {
+            id: idIndex,
+            name: queryObject.name,
+            message: queryObject.message,
+            date: new Date(),
+          };
+          messageArray.push(message);
+          fs.writeFileSync("./messages.json", JSON.stringify(messageArray));
+        }
+        break;
       default:
         console.log("Command not found");
         result = `Command "${pathname.slice(1, pathname.length)}" not found`;
